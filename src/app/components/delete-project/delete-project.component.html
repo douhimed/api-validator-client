@@ -1,1 +1,18 @@
-<p>delete-project works!</p>
+<div class="container">
+  <h1>Delete Project</h1>
+  <div class="card">
+    <div class="card-body">
+      <ng-container *ngIf="project">
+        <p>Are you sure you want to delete project {{ project.name }}?</p>
+        <form [formGroup]="deleteProjectFormGroup">
+          <div class="form-group">
+            <label for="confirmation">Type "DELETE" to confirm:</label>
+            <input type="text" class="form-control" formControlName="confirmation" id="confirmation" required>
+          </div>
+          <button type="submit" class="btn btn-danger" [disabled]="!project">Delete</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </form>
+      </ng-container>
+    </div>
+  </div>
+</div>
