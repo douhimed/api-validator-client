@@ -8,12 +8,14 @@ import {AppRoutingModule} from './app-routing.module';
 import {NewProjectComponent} from './new-project/new-project.component';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {ProjectService} from "./services/project.service";
+import { UpdateProjectComponent } from './update-project/update-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewProjectComponent,
     NavbarComponent,
+    UpdateProjectComponent,
 
   ],
   imports: [
