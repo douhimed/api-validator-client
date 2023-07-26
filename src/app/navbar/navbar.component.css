@@ -1,0 +1,9 @@
+.navbar-brand {
+  display: inline-block;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  margin-left: auto;
+}
