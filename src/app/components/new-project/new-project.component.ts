@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import Swal from "sweetalert2";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {ProjectService} from "../services/project.service";
-import {Project} from "../models/project";
+import {ProjectService} from "../../services/project.service";
+import {Project} from "../../models/project";
 
 @Component({
   selector: 'app-new-project',

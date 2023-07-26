@@ -5,10 +5,11 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {NewProjectComponent} from './new-project/new-project.component';
+import {NewProjectComponent} from './components/new-project/new-project.component';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {ProjectService} from "./services/project.service";
-import { UpdateProjectComponent } from './update-project/update-project.component';
+import { UpdateProjectComponent } from './components/update-project/update-project.component';
+import { DeleteProjectComponent } from './components/delete-project/delete-project.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { UpdateProjectComponent } from './update-project/update-project.componen
     NewProjectComponent,
     NavbarComponent,
     UpdateProjectComponent,
+    DeleteProjectComponent,
 
   ],
   imports: [
