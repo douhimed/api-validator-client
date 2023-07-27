@@ -1,5 +1,4 @@
-export class Project{
-  id!: number;
-  deleted!: boolean;
-  name!: string;
+export interface Project {
+  id: number | undefined;
+  name : string;
 }

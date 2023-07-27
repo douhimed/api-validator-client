@@ -8,16 +8,28 @@ import { TestResult } from '../models/testResult';
   providedIn: 'root'
 })
 export class ProjectService {
+  private backendHost = "http://localhost:8080/project"
 
-  private baseURL = "http://localhost:8080/project"
-
-  constructor(private httpClient : HttpClient) { }
+  constructor(private http : HttpClient) { }
 
   getProjectsList(): Observable<Project[]>{
-    return this.httpClient.get<Project[]>(`${this.baseURL}`)
+    return this.http.get<Project[]>(`${this.backendHost}`)
   }
 
   runProjectTest(id : number): Observable<TestResult>{
-    return this.httpClient.get<TestResult>(`${this.baseURL}/${id}/tests`)
+    return this.http.get<TestResult>(`${this.backendHost}/${id}/tests`)
   }
+
+  public saveProject(project: Project): Observable<Project> {
+    return this.http.post<Project>(`${this.backendHost}`, project);
+  }
+  public updateProject(project: Project): Observable<Project> {
+    const url = `${this.backendHost}/${project.id}`;
+    return this.http.put<Project>(url, project);
+  }
+  getProjectById(id: number): Observable<Project> {
+    const url = `${this.backendHost}/${id}`;
+    return this.http.get<Project>(url);
+  }
+
 }
