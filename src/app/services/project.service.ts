@@ -8,6 +8,7 @@ import { TestResult } from '../models/testResult';
   providedIn: 'root'
 })
 export class ProjectService {
+
   private backendHost = "http://localhost:8080/project"
 
   constructor(private http : HttpClient) { }
@@ -31,5 +32,4 @@ export class ProjectService {
     const url = `${this.backendHost}/${id}`;
     return this.http.get<Project>(url);
   }
-
 }
