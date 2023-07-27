@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { UpdateProjectComponent } from './components/update-project/update-project.component';
 import { CommonModule } from '@angular/common';
+import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     ProjectsListComponent,
     NewProjectComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    ProjectTestsComponent
   ],
   imports: [
     BrowserModule,

@@ -26,10 +26,11 @@ export class ProjectTestsComponent implements OnInit {
     this.projectService.runProjectTest(this.id).subscribe((data) => {
       console.log(data);
       this.testResult = data
+      console.log(this.testResult)
     });
   }
 
-  toggleCollapse() {
-    this.isCollapsed = !this.isCollapsed;
+  toggleCollapse(responseDto: any) {
+    responseDto.isCollapsed = !responseDto.isCollapsed;
   }
 }
