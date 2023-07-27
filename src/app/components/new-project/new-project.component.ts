@@ -36,7 +36,7 @@ export class NewProjectComponent implements OnInit {
           })
           setTimeout(() => {
             this.newProjectFormGroup.reset();
-            this.router.navigateByUrl("/new-project");
+            this.router.navigate(['/']);
           }, 1100);
         },
         error: err => {

@@ -52,7 +52,7 @@ export class UpdateProjectComponent implements OnInit {
             timer: 1000
           });
           setTimeout(() => {
-            this.router.navigate(['update-project', this.projectId]);
+            this.router.navigate(['/']);
           }, 1100);
         },
         error: (err) => {

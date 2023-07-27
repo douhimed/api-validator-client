@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ProjectService {
-  private backendHost = "http://localhost:8086/project"
+  private backendHost = "http://localhost:8080/project"
 
   constructor(private http: HttpClient) {
   }
@@ -30,8 +30,9 @@ export class ProjectService {
     return this.http.get<Project>(url);
   }
 
-  public deleteProject(id: number) {
-    return this.http.delete(this.backendHost + "/project/" + id);
+  public deleteProject(id: number): Observable<any> {
+    const url = `${this.backendHost}/${id}`;
+    return this.http.delete(url);
   }
 }
 

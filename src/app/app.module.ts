@@ -6,9 +6,9 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ProjectService} from "./services/project.service";
 import {UpdateProjectComponent} from './components/update-project/update-project.component';
-import {DeleteProjectComponent} from './components/delete-project/delete-project.component';
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NewProjectComponent} from "./components/new-project/new-project.component";
+import {ProjectsListComponent} from "./components/projects-list/projects-list.component";
 
 
 @NgModule({
@@ -16,8 +16,8 @@ import {NewProjectComponent} from "./components/new-project/new-project.componen
     AppComponent,
     NavbarComponent,
     UpdateProjectComponent,
-    DeleteProjectComponent,
-    NewProjectComponent
+    NewProjectComponent,
+    ProjectsListComponent
   ],
   imports: [
     BrowserModule,
