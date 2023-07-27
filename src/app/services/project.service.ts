@@ -1,3 +1,4 @@
+import { TestResult } from '../models/testResult';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Project} from '../models/project';
@@ -14,6 +15,10 @@ export class ProjectService {
 
   getProjectsList(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.backendHost}`)
+  }
+
+  runProjectTest(id : number): Observable<TestResult>{
+    return this.http.get<TestResult>(`${this.backendHost}/${id}/tests`)
   }
 
   public saveProject(project: Project): Observable<Project> {

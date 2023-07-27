@@ -24,6 +24,9 @@ export class ProjectsListComponent {
       this.projects = data;
     })
   }
+  runProjectTests(id : number | undefined){
+    this.router.navigate(['/project',id,'tests'])
+  }
 
   updateProject(id: number): void {
     this.router.navigate(['update-project', id]);

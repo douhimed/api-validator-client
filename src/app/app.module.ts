@@ -5,10 +5,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ProjectService} from "./services/project.service";
+import { CommonModule } from '@angular/common';
 import {UpdateProjectComponent} from './components/update-project/update-project.component';
 import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NewProjectComponent} from "./components/new-project/new-project.component";
 import {ProjectsListComponent} from "./components/projects-list/projects-list.component";
+import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import {ProjectsListComponent} from "./components/projects-list/projects-list.co
     NavbarComponent,
     UpdateProjectComponent,
     NewProjectComponent,
+    UpdateProjectComponent,
+    ProjectTestsComponent,
     ProjectsListComponent
   ],
   imports: [
@@ -24,7 +28,8 @@ import {ProjectsListComponent} from "./components/projects-list/projects-list.co
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
 
   ],
   providers: [
