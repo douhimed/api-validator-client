@@ -8,11 +8,23 @@ import { Project } from '../models/project';
 })
 export class ProjectService {
 
-  private baseURL = "http://localhost:8080/project"
+  private backendHost = "http://localhost:8080/project"
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private http : HttpClient) { }
 
   getProjectsList(): Observable<Project[]>{
-    return this.httpClient.get<Project[]>(`${this.baseURL}`)
+    return this.http.get<Project[]>(`${this.backendHost}`)
+  }
+
+  public saveProject(project: Project): Observable<Project> {
+    return this.http.post<Project>(`${this.backendHost}`, project);
+  }
+  public updateProject(project: Project): Observable<Project> {
+    const url = `${this.backendHost}/${project.id}`;
+    return this.http.put<Project>(url, project);
+  }
+  getProjectById(id: number): Observable<Project> {
+    const url = `${this.backendHost}/${id}`;
+    return this.http.get<Project>(url);
   }
 }

@@ -1,24 +1,35 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectsListComponent } from './components/projects-list/projects-list.component';
+import {AppComponent} from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {ProjectService} from "./services/project.service";
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NewProjectComponent } from './components/new-project/new-project.component';
+import { UpdateProjectComponent } from './components/update-project/update-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ProjectsListComponent
+    ProjectsListComponent,
+    NewProjectComponent,
+    UpdateProjectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
-  providers: [],
+  providers: [
+    ProjectService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
