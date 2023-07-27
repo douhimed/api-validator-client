@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { Project } from '../models/project';
-import { ProjectService } from '../services/project.service';
+import { Project } from '../../models/project';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-update-project',
