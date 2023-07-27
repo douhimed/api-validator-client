@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from 'src/app/models/project';
 import { ProjectService } from 'src/app/services/project.service';
 
@@ -10,7 +11,8 @@ import { ProjectService } from 'src/app/services/project.service';
 export class ProjectsListComponent {
   projects:Project[] = [];
 
-  constructor(private projectService: ProjectService){}
+  constructor(private projectService: ProjectService,
+    private router : Router){}
 
   ngOnInit() : void{
     this.getProjects();
@@ -20,5 +22,9 @@ export class ProjectsListComponent {
     this.projectService.getProjectsList().subscribe(data =>{
       this.projects = data;
     })
+  }
+
+  runProjectTests(id : number | undefined){
+    this.router.navigate(['/project',id,'tests'])
   }
 }

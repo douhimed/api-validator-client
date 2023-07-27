@@ -13,7 +13,7 @@
       <td>{{project.id}}</td>
       <td>{{project.name}}</td>
       <td>
-        <button class="btn btn-outline-success"> Run Tests</button>
+        <button (click)="runProjectTests(project.id)" class="btn btn-outline-success"> Run Tests</button>
         <button class="btn btn-outline-primary" style="margin-left: 10px"> Consulter</button>
         <button class="btn btn-outline-warning" style="margin-left: 10px"> Modifier</button>
         <button class="btn btn-outline-danger" style="margin-left: 10px"> Supprimer</button>
