@@ -1,0 +1,27 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="url">URL</label>
+    <input type="text" class="form-control" id="url" [(ngModel)]="operation.url" name="url" required>
+  </div>
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input type="text" class="form-control" id="type" [(ngModel)]="operation.type" name="type" required>
+  </div>
+  <div class="form-group">
+    <label for="body">Body</label>
+    <textarea class="form-control" id="body" [(ngModel)]="operation.body" name="body"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="expectedResponse">Expected Response</label>
+    <input type="text" class="form-control" id="expectedResponse" [(ngModel)]="operation.expectedResponse" name="expectedResponse" required>
+  </div>
+  <div class="form-group">
+    <label for="actualResponse">Actual Response</label>
+    <input type="text" class="form-control" id="actualResponse"[(ngModel)]="operation.actualResponse" name="actualResponse" required>
+  </div>
+  <div class="form-group">
+    <label for="expectedType">Expected Type</label>
+    <input type="text" class="form-control" id="expectedType" [(ngModel)]="operation.expectedType" name="expectedType" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Ajouter l'opération</button>
+</form>

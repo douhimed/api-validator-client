@@ -11,6 +11,9 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NewProjectComponent} from "./components/new-project/new-project.component";
 import {ProjectsListComponent} from "./components/projects-list/projects-list.component";
 import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
+import { OperationsComponent } from './operations/operations.component';
+import { AddOperationComponent } from './add-operation/add-operation.component';
+import { NewOperationComponent } from './new-operation/new-operation.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { ProjectTestsComponent } from './components/project-tests/project-tests.
     NewProjectComponent,
     UpdateProjectComponent,
     ProjectTestsComponent,
-    ProjectsListComponent
+    ProjectsListComponent,
+    OperationsComponent,
+    AddOperationComponent,
+    NewOperationComponent
   ],
   imports: [
     BrowserModule,

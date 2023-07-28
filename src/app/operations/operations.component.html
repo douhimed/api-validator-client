@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <button class="btn btn-primary mb-2 mt-4">Add operation</button>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Type</th>
+    <th scope="col">Url</th>
+    <th scope="col">Expected type</th>
+    <th> Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <tr *ngFor="let operation of operations">
+    <td>{{operation.id}}</td>
+    <td>{{operation.type}}</td>
+    <td>{{operation.url}}</td>
+    <td>{{operation.expectedType}}</td>
+    <td>
+      <button class="btn btn-outline-danger" style="margin-left: 10px">
+        Delete
+      </button>
+      <button class="btn btn-outline-success" style="margin-left: 10px">
+        Update
+      </button>
+      <button class="btn btn-outline-info" style="margin-left: 10px">
+        Details
+      </button>
+    </td>
+
+  </tr>
+  </tbody>
+</table>

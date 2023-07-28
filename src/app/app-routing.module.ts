@@ -4,6 +4,8 @@ import { ProjectsListComponent } from './components/projects-list/projects-list.
 import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
 import { NewProjectComponent } from './components/new-project/new-project.component';
 import { UpdateProjectComponent } from './components/update-project/update-project.component';
+import {OperationsComponent} from "./operations/operations.component";
+import {AddOperationComponent} from "./add-operation/add-operation.component";
 
 
 const routes: Routes = [
@@ -12,6 +14,15 @@ const routes: Routes = [
   {path:"project/:id/tests" , component : ProjectTestsComponent},
   {path: "new-project", component: NewProjectComponent},
   {path: "update-project/:id", component: UpdateProjectComponent},
+  { path: 'add-operation', component: AddOperationComponent },
+  {
+    path: 'projects/:projectId/operations',
+    component: OperationsComponent
+  },
+  {
+    path: 'add-operation',
+    component: AddOperationComponent
+  }
 
 ];
 
