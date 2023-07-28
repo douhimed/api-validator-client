@@ -1,12 +1,12 @@
+<a routerLink="/add-operation/{{projectId}}" class="btn btn-outline-primary mt-4" style="margin-left: 10px"> Add operation</a>
 <table class="table table-striped">
   <thead>
-    <button class="btn btn-primary mb-2 mt-4">Add operation</button>
-  <tr>
+    <tr>
     <th scope="col">Id</th>
     <th scope="col">Type</th>
     <th scope="col">Url</th>
     <th scope="col">Expected type</th>
-    <th> Actions</th>
+    <th scope="col"> Actions</th>
   </tr>
   </thead>
 
@@ -19,10 +19,10 @@
     <td>{{operation.expectedType}}</td>
     <td>
       <button class="btn btn-outline-danger" style="margin-left: 10px">
-        Delete
+        <i class="bi bi-trash"></i>
       </button>
       <button class="btn btn-outline-success" style="margin-left: 10px">
-        Update
+        <i class="bi bi-pencil"></i>
       </button>
       <button class="btn btn-outline-info" style="margin-left: 10px">
         Details

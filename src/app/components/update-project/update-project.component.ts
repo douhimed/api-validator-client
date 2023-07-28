@@ -41,6 +41,7 @@ export class UpdateProjectComponent implements OnInit {
       const updatedProject: Project = {
         id: this.projectId,
         name: this.updateProjectFormGroup.value.name,
+        operationDtos:[]
       };
       this.projectService.updateProject(updatedProject).subscribe({
         next: () => {

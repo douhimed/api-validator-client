@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Operation} from "../models/Operation";
-import {OperationService} from "../services/operation.service";
-
+import { Operation } from "../models/Operation";
+import { OperationService } from "../services/operation.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-add-operation',
@@ -10,7 +10,6 @@ import {OperationService} from "../services/operation.service";
   styleUrls: ['./add-operation.component.css']
 })
 export class AddOperationComponent implements OnInit {
-  projectId!: number;
   operation: Operation = {
     id: 0,
     url: '',
@@ -23,19 +22,28 @@ export class AddOperationComponent implements OnInit {
 
   constructor(private operationService: OperationService, private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.projectId = params['projectId'];
-    });
-  }
   onSubmit() {
-    this.operationService.addOperation(this.projectId, this.operation).subscribe(
-      operationId => {
-        this.router.navigate(['projects', this.projectId, 'operations']);
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    const projectId = this.route.snapshot.paramMap.get('projectId');
+    if (projectId) {
+      console.log(projectId, '==========')
+      this.operationService.addOperation(projectId, this.operation).subscribe(
+        operationId => {
+          console.log("Operation added successfully with ID: ", operationId);
+          Swal.fire({
+            icon: 'success',
+            title: 'Operation added',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.router.navigate(['projects', projectId, 'operations']);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    }
+  }
+
+  ngOnInit(): void {
   }
 }

@@ -13,7 +13,6 @@ import {ProjectsListComponent} from "./components/projects-list/projects-list.co
 import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
 import { OperationsComponent } from './operations/operations.component';
 import { AddOperationComponent } from './add-operation/add-operation.component';
-import { NewOperationComponent } from './new-operation/new-operation.component';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { NewOperationComponent } from './new-operation/new-operation.component';
     ProjectTestsComponent,
     ProjectsListComponent,
     OperationsComponent,
-    AddOperationComponent,
-    NewOperationComponent
+    AddOperationComponent
   ],
   imports: [
     BrowserModule,

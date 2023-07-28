@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import {Operation} from "../models/Operation";
 import {OperationService} from "../services/operation.service";
-import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,20 +13,22 @@ export class OperationsComponent implements OnInit {
   projectId!: number;
   operations: Operation[]=[];
 
-  constructor(private operationService: OperationService, private router: Router) { }
+  constructor(private operationService: OperationService, private router: Router, private route: ActivatedRoute) { }
+
   ngOnInit() {
-    this.projectId = 1;
-    this.operationService.getAllOperationsByProjectId(this.projectId).subscribe(
-      operations => {
-        this.operations = operations;
-        console.log(operations)
-      },
-      error => {
-        console.error(error);
-      }
-    );
+    this.route.params.subscribe(params => {
+      this.projectId = +params['projectId'];
+      this.operationService.getAllOperationsByProjectId(this.projectId).subscribe(
+        res => {
+          this.operations = res?.operationDtos;
+        },
+        error => {
+          console.error(error);
+        }
+      );
+    });
   }
   onAddOperation() {
-    this.router.navigate(['add-operation'], { queryParams: { projectId: this.projectId } });
+    this.router.navigate(['add-operation']);
   }
 }
