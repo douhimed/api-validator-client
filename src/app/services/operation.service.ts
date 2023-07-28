@@ -22,4 +22,9 @@ export class OperationService {
     const url = `${this.baseUrl}?projectId=${projectId}`;
     return this.http.post<number>(url, operation);
   }
+
+  public deleteOperation(id: number): Observable<any> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete(url);
+  }
 }

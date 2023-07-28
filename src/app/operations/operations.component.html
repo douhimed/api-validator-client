@@ -18,7 +18,7 @@
     <td>{{operation.url}}</td>
     <td>{{operation.expectedType}}</td>
     <td>
-      <button class="btn btn-outline-danger" style="margin-left: 10px">
+      <button class="btn btn-outline-danger" (click)="handleDeleteOperation(operation.id)" style="margin-left: 10px">
         <i class="bi bi-trash"></i>
       </button>
       <button class="btn btn-outline-success" style="margin-left: 10px">
