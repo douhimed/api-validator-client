@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Operation} from "../models/Operation";
-import {OperationService} from "../services/operation.service";
+import {Operation} from "../../models/Operation";
+import {OperationService} from "../../services/operation.service";
 import Swal from "sweetalert2";
 
 

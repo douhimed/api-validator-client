@@ -11,9 +11,10 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NewProjectComponent} from "./components/new-project/new-project.component";
 import {ProjectsListComponent} from "./components/projects-list/projects-list.component";
 import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
-import { OperationsComponent } from './operations/operations.component';
-import { AddOperationComponent } from './add-operation/add-operation.component';
-import {UpdateOperationComponent} from "./update-operation/update-operation.component";
+import { OperationsComponent } from './components/operations/operations.component';
+import { AddOperationComponent } from './components/add-operation/add-operation.component';
+import {UpdateOperationComponent} from "./components/update-operation/update-operation.component";
+import { OperationDetailsComponent } from './components/operation-details/operation-details.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {UpdateOperationComponent} from "./update-operation/update-operation.comp
     ProjectsListComponent,
     OperationsComponent,
     AddOperationComponent,
-    UpdateOperationComponent
+    UpdateOperationComponent,
+    OperationDetailsComponent
   ],
   imports: [
     BrowserModule,

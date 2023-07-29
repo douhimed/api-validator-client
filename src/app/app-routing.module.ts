@@ -4,9 +4,9 @@ import {ProjectsListComponent} from './components/projects-list/projects-list.co
 import {ProjectTestsComponent} from './components/project-tests/project-tests.component';
 import {NewProjectComponent} from './components/new-project/new-project.component';
 import {UpdateProjectComponent} from './components/update-project/update-project.component';
-import {OperationsComponent} from "./operations/operations.component";
-import {AddOperationComponent} from "./add-operation/add-operation.component";
-import {UpdateOperationComponent} from "./update-operation/update-operation.component";
+import {OperationsComponent} from "./components/operations/operations.component";
+import {AddOperationComponent} from "./components/add-operation/add-operation.component";
+import {UpdateOperationComponent} from "./components/update-operation/update-operation.component";
 
 
 const routes: Routes = [

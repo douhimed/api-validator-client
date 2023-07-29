@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import Swal from "sweetalert2";
-import {Operation} from "../models/Operation";
-import {OperationService} from "../services/operation.service";
+import {Operation} from "../../models/Operation";
+import {OperationService} from "../../services/operation.service";
 
 @Component({
   selector: 'app-update-operation',
