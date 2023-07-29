@@ -65,4 +65,7 @@ export class OperationsComponent implements OnInit {
       }
     });
   }
+  goToEditForm(operationId: number): void {
+    this.router.navigate(['/update-operation', operationId]);
+  }
 }
