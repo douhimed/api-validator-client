@@ -10,6 +10,7 @@ import {Project} from "../models/project";
 export class OperationService {
   private baseUrl = 'http://localhost:8080/operation';
   private baseUrlV2 = 'http://localhost:8080/project';
+
   constructor(private http: HttpClient) {
   }
 
@@ -26,5 +27,19 @@ export class OperationService {
   public deleteOperation(id: number): Observable<any> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete(url);
+  }
+
+  updateOperation(operation: { id: number; url: any; body: any; type: any; expectedType: any }): Observable<Operation> {
+    const url = `${this.baseUrl}/${operation.id}`;
+    return this.http.put<Operation>(url, operation);
+  }
+
+  getOperationById(id: number): Observable<Operation> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Operation>(url);
+  }
+  getProjectById(projectId: number): Observable<Project> {
+    const url = `${this.baseUrlV2}${projectId}`;
+    return this.http.get<Project>(url);
   }
 }
