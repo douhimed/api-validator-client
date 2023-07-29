@@ -7,6 +7,7 @@ import {UpdateProjectComponent} from './components/update-project/update-project
 import {OperationsComponent} from "./components/operations/operations.component";
 import {AddOperationComponent} from "./components/add-operation/add-operation.component";
 import {UpdateOperationComponent} from "./components/update-operation/update-operation.component";
+import {OperationDetailsComponent} from "./components/operation-details/operation-details.component";
 
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   {path: 'projects/:projectId/operations', component: OperationsComponent},
   {path: 'projects/:projectId/add-operation', component: AddOperationComponent},
   {path: "update-operation/:id", component: UpdateOperationComponent},
+  { path: 'operations/:id', component: OperationDetailsComponent },
+
 
 ];
 

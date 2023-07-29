@@ -15,6 +15,7 @@ import { OperationsComponent } from './components/operations/operations.componen
 import { AddOperationComponent } from './components/add-operation/add-operation.component';
 import {UpdateOperationComponent} from "./components/update-operation/update-operation.component";
 import { OperationDetailsComponent } from './components/operation-details/operation-details.component';
+import {JsonFormatPipe} from "./json-format.pipe";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { OperationDetailsComponent } from './components/operation-details/operat
     OperationsComponent,
     AddOperationComponent,
     UpdateOperationComponent,
-    OperationDetailsComponent
+    OperationDetailsComponent,
+    JsonFormatPipe
   ],
   imports: [
     BrowserModule,

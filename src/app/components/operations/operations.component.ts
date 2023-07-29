@@ -68,4 +68,8 @@ export class OperationsComponent implements OnInit {
   goToEditForm(operationId: number): void {
     this.router.navigate(['/update-operation', operationId]);
   }
+  goToDetails(operationId: number): void {
+    this.router.navigate(['/operations', operationId]);
+  }
+
 }
