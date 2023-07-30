@@ -38,11 +38,6 @@ export class OperationDetailsComponent implements OnInit {
       content: '',
       collapsed: true
     },
-    {
-      title: 'Actual Response:',
-      content: '',
-      collapsed: true
-    },
   ];
   operation: any = {
     url: 'https://api-validator.com/api',
@@ -60,9 +55,18 @@ export class OperationDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.operationId = this.route.snapshot.params['id'];
-    this.operationService.getOperationById(this.operationId).subscribe((operation) => {
-      this.operation = operation;
-    });
+    this.operationService.getOperationById(this.operationId).subscribe(
+      (operation) => {
+        this.operation = operation;
+        this.fetchActualResponse();
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération de l\'opération :', error);
+      }
+    );
+  }
+  fetchActualResponse(): void {
+    this.operation.actualResponse = this.operation.actualResponse ? this.operation.actualResponse : '';
   }
   toggleCollapse(detail: any): void {
     detail.collapsed = !detail.collapsed;
@@ -82,9 +86,6 @@ export class OperationDetailsComponent implements OnInit {
           break;
         case 'Expected Response:':
           detail.content = this.operation?.expectedResponse;
-          break;
-        case 'Actual Response:':
-          detail.content = this.operation?.actualResponse;
           break;
         default:
           detail.content = '';
