@@ -1,37 +1,21 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-md-6">
-      <div class="mb-3">
-        <h4 class="text-secondary">Operation Details</h4>
-      </div>
-
-      <div class="mb-3">
-        <label for="url" class="form-label text-secondary"><strong>URL:</strong></label>
-        <p id="url" class="form-control-plaintext">{{ operation?.url }}</p>
-      </div>
-
-      <div class="mb-3">
-        <label for="type" class="form-label text-secondary"><strong>Type:</strong></label>
-        <p id="type" class="form-control-plaintext">{{ operation?.type }}</p>
-      </div>
-
-      <div class="mb-3">
-        <label for="expectedType" class="form-label text-secondary"><strong>Expected Type:</strong></label>
-        <p id="expectedType" class="form-control-plaintext">{{ operation?.expectedType }}</p>
-      </div>
-
-      <div class="mb-3">
-        <label for="expectedResponse" class="form-label text-secondary"><strong>Expected Response:</strong></label>
-        <pre id="expectedResponse" class="form-control-plaintext">{{ operation?.expectedResponse | jsonFormat }}</pre>
-      </div>
-      <div class="mb-3">
-        <label for="body" class="form-label text-secondary"><strong>Body:</strong></label>
-        <pre id="body" class="form-control-plaintext">{{ operation?.body | jsonFormat }}</pre>
-      </div>
-
-      <div class="mb-3">
-        <label for="actualResponse" class="form-label text-secondary"><strong>Actual Response:</strong></label>
-        <pre id="actualResponse" class="form-control-plaintext">{{ operation?.actualResponse | jsonFormat }}</pre>
+    <div class="col-md-8 mx-auto">
+      <div class="accordion" id="operationDetailsAccordion">
+        <div *ngFor="let detail of operationDetails" class="accordion-item">
+          <h2 class="accordion-header" (click)="toggleCollapse(detail)">
+            <button class="accordion-button" type="button" [attr.aria-expanded]="!detail.collapsed"
+                    [attr.aria-controls]="'collapse-' + detail.title" [ngClass]="{ 'collapsed': detail.collapsed }">
+              <strong>{{ detail.title }}</strong>
+            </button>
+          </h2>
+          <div [id]="'collapse-' + detail.title" class="accordion-collapse collapse"
+               [attr.aria-labelledby]="'collapse-' + detail.title" [ngClass]="{ 'show': !detail.collapsed }">
+            <div class="accordion-body">
+              <pre class="form-control-plaintext">{{ detail.content }}</pre>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

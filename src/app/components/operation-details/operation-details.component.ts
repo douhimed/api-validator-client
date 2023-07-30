@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Operation } from '../../models/Operation';
 import { OperationService } from '../../services/operation.service';
 import {JsonFormatPipe} from "../../json-format.pipe";
 
@@ -9,12 +8,51 @@ import {JsonFormatPipe} from "../../json-format.pipe";
   selector: 'app-operation-details',
   templateUrl: './operation-details.component.html',
   styleUrls: ['./operation-details.component.css'],
-  providers: [JsonFormatPipe]
+  providers: [JsonFormatPipe],
 })
 export class OperationDetailsComponent implements OnInit {
   operationId!: number;
-  operation!: Operation;
+  operationDetails = [
+    {
+      title: 'URL:',
+      content: '',
+      collapsed: true
+    },
+    {
+      title: 'Type:',
+      content: '',
+      collapsed: true
+    },
+    {
+      title: 'Body:',
+      content: '',
+      collapsed: true
+    },
+    {
+      title: 'Expected Type:',
+      content: '',
+      collapsed: true
+    },
+    {
+      title: 'Expected Response:',
+      content: '',
+      collapsed: true
+    },
+    {
+      title: 'Actual Response:',
+      content: '',
+      collapsed: true
+    },
+  ];
+  operation: any = {
+    url: 'https://api-validator.com/api',
+    type: 'GET',
+    body:'{}',
+    expectedType:'{}',
+    expectedResponse:'{}',
+    actualResponse:'{}'
 
+  };
   constructor(
     private route: ActivatedRoute,
     private operationService: OperationService
@@ -26,5 +64,31 @@ export class OperationDetailsComponent implements OnInit {
       this.operation = operation;
     });
   }
+  toggleCollapse(detail: any): void {
+    detail.collapsed = !detail.collapsed;
+    if (!detail.collapsed) {
+      switch (detail.title) {
+        case 'URL:':
+          detail.content = this.operation?.url;
+          break;
+        case 'Type:':
+          detail.content = this.operation?.type;
+          break;
+        case 'Body:':
+          detail.content = this.operation?.body;
+          break;
+        case 'Expected Type:':
+          detail.content = this.operation?.expectedType;
+          break;
+        case 'Expected Response:':
+          detail.content = this.operation?.expectedResponse;
+          break;
+        case 'Actual Response:':
+          detail.content = this.operation?.actualResponse;
+          break;
+        default:
+          detail.content = '';
+      }
+    }
 
-}
+  }}
