@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { OperationService } from '../../services/operation.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {OperationService} from '../../services/operation.service';
 import {JsonFormatPipe} from "../../json-format.pipe";
 
 
@@ -42,32 +42,31 @@ export class OperationDetailsComponent implements OnInit {
   operation: any = {
     url: 'https://api-validator.com/api',
     type: 'GET',
-    body:'{}',
-    expectedType:'{}',
-    expectedResponse:'{}',
-    actualResponse:'{}'
+    body: '{}',
+    expectedType: '{}',
+    expectedResponse: '{}',
+    actualResponse: '{}'
 
   };
+
   constructor(
     private route: ActivatedRoute,
     private operationService: OperationService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.operationId = this.route.snapshot.params['id'];
     this.operationService.getOperationById(this.operationId).subscribe(
       (operation) => {
         this.operation = operation;
-        this.fetchActualResponse();
       },
       (error) => {
         console.error('Erreur lors de la récupération de l\'opération :', error);
       }
     );
   }
-  fetchActualResponse(): void {
-    this.operation.actualResponse = this.operation.actualResponse ? this.operation.actualResponse : '';
-  }
+
   toggleCollapse(detail: any): void {
     detail.collapsed = !detail.collapsed;
     if (!detail.collapsed) {
@@ -92,4 +91,5 @@ export class OperationDetailsComponent implements OnInit {
       }
     }
 
-  }}
+  }
+}

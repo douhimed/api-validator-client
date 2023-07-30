@@ -1,11 +1,3 @@
-<!-- <h1>Les tests de projet: <b>{{testResult.name}}</b></h1>
-
-<div *ngIf="testResult">
-  <div *ngFor="let item of testResult.responseDto">
-    <h1>{{item.type}}</h1>
-  </div>
-</div> -->
-
 <div class="container" *ngIf="testResult">
   <div class="section" *ngFor="let responseDto of testResult.responseDto">
     <div class="section-header get-section" (click)="toggleCollapse(responseDto)">
@@ -55,20 +47,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="card">
-          <div class="card-header">
-            <b>Rapport : </b>
-          </div>
-          <div *ngIf="responseDto?.messages">
-            <div *ngFor="let message of responseDto?.messages">
-              <div class="card-body">
-                <p>Operation :{{ message.op }}</p>
-                <p>Path :{{ message.path }}</p>
-                <p>Value: {{ message.value?.msg ?? "" }}</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
