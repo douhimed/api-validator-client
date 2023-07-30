@@ -1,26 +1,28 @@
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Nom de Projet</th>
-      <th> Actions</th>
-    </tr>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Nom de Projet</th>
+    <th> Actions</th>
+  </tr>
   </thead>
   <tbody>
-
-    <tr *ngFor="let project of projects">
-      <td>{{project.id}}</td>
-      <td>{{project.name}}</td>
-      <td>
-        <button (click)="runProjectTests(project.id)" class="btn btn-outline-success"> Run Tests</button>
-        <button class="btn btn-outline-primary" style="margin-left: 10px"> Consulter</button>
-        <button class="btn btn-outline-warning" style="margin-left: 10px" (click)="updateProject(project.id)"> Modifier
-        </button>
-        <button class="btn btn-outline-danger" style="margin-left: 10px" (click)="handleDeleteProject(project.id)">
-          Supprimer
-        </button>
-      </td>
-    </tr>
-
+  <tr *ngFor="let project of projects">
+    <td>{{project.id}}</td>
+    <td>{{project.name}}</td>
+    <td>
+      <button (click)="runProjectTests(project.id)" class="btn btn-outline-success"><i class="bi bi-play-circle"></i>
+        Run
+      </button>
+      <a routerLink="/projects/{{project.id}}/operations" class="btn btn-outline-primary" style="margin-left: 10px">
+        View</a>
+      <button class="btn btn-outline-warning" style="margin-left: 10px" (click)="updateProject(project.id)"><i
+        class="bi bi-pencil"></i>
+      </button>
+      <button class="btn btn-outline-danger" style="margin-left: 10px" (click)="handleDeleteProject(project.id)">
+        <i class="bi bi-trash"></i>
+      </button>
+    </td>
+  </tr>
   </tbody>
 </table>

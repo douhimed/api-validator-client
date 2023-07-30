@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Project} from '../models/project';
 import {Observable} from 'rxjs';
+import {Operation} from "../models/Operation";
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class ProjectService {
   public deleteProject(id: number): Observable<any> {
     const url = `${this.backendHost}/${id}`;
     return this.http.delete(url);
+  }
+  getAllOperationsByProjectId(projectId: number): Observable<Operation[]> {
+    const url = `${this.backendHost}/${projectId}`;
+    return this.http.get<Operation[]>(url);
   }
 }
 

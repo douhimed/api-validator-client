@@ -11,6 +11,11 @@ import {NavbarComponent} from "./components/navbar/navbar.component";
 import {NewProjectComponent} from "./components/new-project/new-project.component";
 import {ProjectsListComponent} from "./components/projects-list/projects-list.component";
 import { ProjectTestsComponent } from './components/project-tests/project-tests.component';
+import { OperationsComponent } from './components/operations/operations.component';
+import { AddOperationComponent } from './components/add-operation/add-operation.component';
+import {UpdateOperationComponent} from "./components/update-operation/update-operation.component";
+import { OperationDetailsComponent } from './components/operation-details/operation-details.component';
+import {JsonFormatPipe} from "./json-format.pipe";
 
 
 @NgModule({
@@ -21,7 +26,12 @@ import { ProjectTestsComponent } from './components/project-tests/project-tests.
     NewProjectComponent,
     UpdateProjectComponent,
     ProjectTestsComponent,
-    ProjectsListComponent
+    ProjectsListComponent,
+    OperationsComponent,
+    AddOperationComponent,
+    UpdateOperationComponent,
+    OperationDetailsComponent,
+    JsonFormatPipe
   ],
   imports: [
     BrowserModule,

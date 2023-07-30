@@ -1,7 +1,6 @@
-import { Value } from "./Value";
 
 export interface Messages {
-  op : string;
+  operation : string;
   path : string;
-  value : Value;
+  value : string;
 }
