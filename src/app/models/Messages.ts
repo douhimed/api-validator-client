@@ -1,6 +1,6 @@
 import {Value} from "./Value";
 export interface Messages {
-  operation : string;
+  op : string;
   path : string;
   value : Value;
 }

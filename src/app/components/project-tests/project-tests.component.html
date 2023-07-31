@@ -38,7 +38,7 @@
               <div *ngFor="let message of responseDto?.messages">
                 <div class="card">
                   <div class="card-body">
-                    <p>Operation :{{ message.operation }}</p>
+                    <p>Operation :{{ message.op }}</p>
                     <p>Path :{{ message.path }}</p>
                     <p>Value: {{ message.value?.msg ?? "" }}</p>
                   </div>
