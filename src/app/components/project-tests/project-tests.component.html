@@ -40,7 +40,7 @@
                   <div class="card-body">
                     <p>Operation :{{ message.operation }}</p>
                     <p>Path :{{ message.path }}</p>
-                    <p>Value: {{ message.value ?? "" }}</p>
+                    <p>Value: {{ message.value?.msg ?? "" }}</p>
                   </div>
                 </div>
               </div>
