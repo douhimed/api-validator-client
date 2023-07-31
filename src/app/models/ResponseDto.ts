@@ -1,6 +1,7 @@
 import { Messages } from './Messages';
 
 export interface ResponseDto {
+  id:number;
   url: string;
   type: string;
   httpStatus: number | string;

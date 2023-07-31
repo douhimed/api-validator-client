@@ -42,4 +42,9 @@ export class OperationService {
     const url = `${this.baseUrlV2}${projectId}`;
     return this.http.get<Project>(url);
   }
+
+updateExcpectedResponse(id : number,newExcpectedResonse : string) : Observable<Operation>{
+  const url = `${this.baseUrl}/${id}`;
+  return this.http.patch<Operation>(url,newExcpectedResonse);
+}
 }
