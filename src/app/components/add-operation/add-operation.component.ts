@@ -22,14 +22,15 @@ export class AddOperationComponent implements OnInit {
   };
 
   constructor(private operationService: OperationService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService) { }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   onSubmit() {
     const projectId = this.route.snapshot.paramMap.get('projectId');
     if (projectId) {
-      //console.log(projectId, '==========')
       this.operationService.addOperation(projectId, this.operation).subscribe(
         operationId => {
-          //console.log("Operation added successfully with ID: ", operationId);
           Swal.fire({
             icon: 'success',
             title: 'Operation added',
@@ -43,8 +44,5 @@ export class AddOperationComponent implements OnInit {
         }
       );
     }
-  }
-
-  ngOnInit(): void {
   }
 }

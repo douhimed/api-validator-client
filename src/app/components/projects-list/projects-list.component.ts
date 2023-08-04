@@ -62,6 +62,12 @@ export class ProjectsListComponent {
           },
         });
       } else if (result.isDismissed) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Project deletion canceled',
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     });
   }
