@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { TestResult } from 'src/app/models/testResult';
 import { ProjectService } from 'src/app/services/project.service';
 import { OperationService } from 'src/app/services/operation.service';
@@ -40,7 +40,7 @@ export class ProjectTestsComponent implements OnInit {
   handleUpdateExpectedResponse(id: number, newExpectedResponse: string): void {
     this.operationService.updateExcpectedResponse(id, newExpectedResponse).subscribe(
       (data) => {
-        this.toastr.success('Expected response updated successfully: '+data, 'Success');
+        this.toastr.success('Expected response updated successfully', 'Success');
         this.loadProjectTestResults();
       },
       (error) => {

@@ -63,6 +63,12 @@ export class OperationsComponent implements OnInit {
           },
         });
       } else if (result.isDismissed) {
+        Swal.fire({
+          icon: 'info',
+          title: 'Operation deletion canceled',
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     });
   }
