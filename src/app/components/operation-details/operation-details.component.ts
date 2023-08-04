@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {OperationService} from '../../services/operation.service';
 import {JsonFormatPipe} from "../../json-format.pipe";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -51,7 +52,8 @@ export class OperationDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private operationService: OperationService
+    private operationService: OperationService,
+    private toastr: ToastrService
   ) {
   }
 
@@ -62,7 +64,7 @@ export class OperationDetailsComponent implements OnInit {
         this.operation = operation;
       },
       (error) => {
-        console.error('Erreur lors de la récupération de l\'opération :', error);
+        this.toastr.error('Erreur lors de la récupération de l\'opération : '+error.error.message, 'Error');
       }
     );
   }

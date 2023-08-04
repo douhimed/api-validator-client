@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ProjectService} from "../../services/project.service";
 import {Project} from "../../models/project";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-project',
@@ -13,7 +14,7 @@ import {Project} from "../../models/project";
 export class NewProjectComponent implements OnInit {
   newProjectFormGroup!: FormGroup;
 
-  constructor(private fb: FormBuilder, private projectService: ProjectService, private router: Router) {
+  constructor(private fb: FormBuilder, private projectService: ProjectService, private router: Router,private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -40,7 +41,7 @@ export class NewProjectComponent implements OnInit {
           }, 1100);
         },
         error: err => {
-          console.log(err);
+          this.toastr.error('Error: '+err.error.message, 'Error');
         }
       });
     }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Operation } from "../../models/Operation";
 import { OperationService } from "../../services/operation.service";
 import Swal from "sweetalert2";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-operation',
@@ -20,15 +21,15 @@ export class AddOperationComponent implements OnInit {
     expectedType: ''
   };
 
-  constructor(private operationService: OperationService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private operationService: OperationService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService) { }
 
   onSubmit() {
     const projectId = this.route.snapshot.paramMap.get('projectId');
     if (projectId) {
-      console.log(projectId, '==========')
+      //console.log(projectId, '==========')
       this.operationService.addOperation(projectId, this.operation).subscribe(
         operationId => {
-          console.log("Operation added successfully with ID: ", operationId);
+          //console.log("Operation added successfully with ID: ", operationId);
           Swal.fire({
             icon: 'success',
             title: 'Operation added',
@@ -38,7 +39,7 @@ export class AddOperationComponent implements OnInit {
           this.router.navigate(['projects', projectId, 'operations']);
         },
         error => {
-          console.error(error);
+          this.toastr.error('Error: '+error.error.message, 'Error');
         }
       );
     }

@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import Swal from "sweetalert2";
 import {Operation} from "../../models/Operation";
 import {OperationService} from "../../services/operation.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-operation',
@@ -19,7 +20,8 @@ export class UpdateOperationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private operationService: OperationService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.updateOperationFormGroup = this.formBuilder.group({
       url: ['', Validators.required],
@@ -71,7 +73,7 @@ export class UpdateOperationComponent implements OnInit {
           }, 1100);
         },
         error: (err) => {
-          console.log(err);
+          this.toastr.error('Error: '+err.error.message, 'Error');
         }
       });
     }

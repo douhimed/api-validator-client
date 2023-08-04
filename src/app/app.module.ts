@@ -16,6 +16,8 @@ import { AddOperationComponent } from './components/add-operation/add-operation.
 import {UpdateOperationComponent} from "./components/update-operation/update-operation.component";
 import { OperationDetailsComponent } from './components/operation-details/operation-details.component';
 import {JsonFormatPipe} from "./json-format.pipe";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import {JsonFormatPipe} from "./json-format.pipe";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
 
   ],
   providers: [

@@ -3,6 +3,7 @@ import {Project} from 'src/app/models/project';
 import {ProjectService} from 'src/app/services/project.service';
 import {Router} from '@angular/router';
 import Swal from "sweetalert2";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-projects-list',
@@ -12,7 +13,7 @@ import Swal from "sweetalert2";
 export class ProjectsListComponent {
   projects: Project[] = [];
 
-  constructor(private projectService: ProjectService, private router: Router) {
+  constructor(private projectService: ProjectService, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -57,7 +58,7 @@ export class ProjectsListComponent {
             }, 1500);
           },
           error: (err) => {
-            console.log(err);
+            this.toastr.error('Error: '+err.error.message, 'Error');
           },
         });
       } else if (result.isDismissed) {
