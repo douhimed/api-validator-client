@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-project',
@@ -19,7 +20,8 @@ export class UpdateProjectComponent implements OnInit {
     private formBuilder: FormBuilder,
     private projectService: ProjectService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.updateProjectFormGroup = this.formBuilder.group({
       name: ['', Validators.required]
@@ -57,7 +59,7 @@ export class UpdateProjectComponent implements OnInit {
           }, 1100);
         },
         error: (err) => {
-          console.log(err);
+          this.toastr.error('Error: '+err.error.message, 'Error');
         }
       });
     }

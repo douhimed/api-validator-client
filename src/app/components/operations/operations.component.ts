@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {Operation} from "../../models/Operation";
 import {OperationService} from "../../services/operation.service";
 import Swal from "sweetalert2";
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class OperationsComponent implements OnInit {
   projectId!: number;
   operations: Operation[]=[];
 
-  constructor(private operationService: OperationService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private operationService: OperationService, private router: Router, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -24,7 +25,7 @@ export class OperationsComponent implements OnInit {
           this.operations = res?.operationDtos;
         },
         error => {
-          console.error(error);
+          this.toastr.error('Erreur : '+error.error.message, 'Error');
         }
       );
     });
@@ -58,7 +59,7 @@ export class OperationsComponent implements OnInit {
             }, 1500);
           },
           error: (err) => {
-            console.log(err);
+            this.toastr.error('Erreur : '+err.error.message, 'Error');
           },
         });
       } else if (result.isDismissed) {

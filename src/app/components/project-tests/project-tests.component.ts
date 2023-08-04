@@ -8,6 +8,7 @@ import { Fields } from 'src/app/models/jira-models/fields';
 import { Messages } from 'src/app/models/Messages';
 import { jiraPayload } from 'src/app/models/jira-models/jiraPayload';
 import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-project-tests',
@@ -23,7 +24,7 @@ export class ProjectTestsComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(private projectService: ProjectService,private operationService: OperationService ,private jiraTicketService: JiraTicketService, private route: ActivatedRoute) {}
+  constructor(private projectService: ProjectService,private operationService: OperationService , private toastr: ToastrService ,private jiraTicketService: JiraTicketService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -39,11 +40,11 @@ export class ProjectTestsComponent implements OnInit {
   handleUpdateExpectedResponse(id: number, newExpectedResponse: string): void {
     this.operationService.updateExcpectedResponse(id, newExpectedResponse).subscribe(
       (data) => {
-        console.log('Expected response updated successfully:', data);
+        this.toastr.success('Expected response updated successfully: '+data, 'Success');
         this.loadProjectTestResults();
       },
       (error) => {
-        console.error('Failed to update expected response:', error);
+        this.toastr.error('Failed to update expected response: '+error.error.message, 'Error');
       }
     );
   }
