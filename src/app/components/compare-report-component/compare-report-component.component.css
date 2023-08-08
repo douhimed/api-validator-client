@@ -19,6 +19,7 @@ h1 {
 }
 
 .section-header {
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,7 +31,7 @@ h1 {
 
 .section-title {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
   color: #14678a;
 }
 
@@ -42,7 +43,7 @@ h1 {
 .badge {
   padding: 5px 12px;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   margin-left: 10px;
 }
@@ -111,6 +112,7 @@ h1 {
   font-size: 14px;
   color: #333;
 }
+
 .get-section {
   background-color: #baf3ba;
 }
