@@ -1,7 +1,13 @@
 <div class="container" *ngIf="testResult">
   <div class="section" *ngFor="let responseDto of testResult.responseDto">
-    <div class="section-header get-section" (click)="toggleCollapse(responseDto)">
-      <div class="section-title">{{ responseDto?.type }}</div>
+    <div class="section-header get-section"
+         [ngClass]="{
+            'get-section': responseDto?.type === 'GET',
+            'delete-section': responseDto?.type === 'DELETE',
+            'put-section': responseDto?.type === 'PUT',
+            'post-section': responseDto?.type === 'POST'
+         }"
+         (click)="toggleCollapse(responseDto)">      <div class="section-title">{{ responseDto?.type }}</div>
       <div class="section-content">{{ responseDto?.url }}</div>
       <div class="section-badge-container">
         <span class="section-title badge text-bg-primary">{{ responseDto?.httpStatus }}</span>
@@ -37,14 +43,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <br>
-        <div>
-          <button type="button" class="btn btn-warning"
-            (click)="handleUpdateExpectedResponse(responseDto.id,responseDto.actualResponse)">Update Expected
-            Response</button>
-          <button type="button" class="btn btn-info" style="margin-left: 10px;"
-            (click)="sendJiraTicket(responseDto.type,responseDto.url,responseDto.messages)">Jira Ticket</button>
         </div>
       </ng-container>
     </div>

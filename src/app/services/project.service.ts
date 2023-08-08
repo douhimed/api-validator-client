@@ -1,9 +1,10 @@
-import { TestResult } from '../models/testResult';
+import {TestResult} from '../models/testResult';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Project} from '../models/project';
 import {Observable} from 'rxjs';
 import {Operation} from "../models/Operation";
+import {ResponseDto} from "../models/ResponseDto";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class ProjectService {
     return this.http.get<Project[]>(`${this.backendHost}`)
   }
 
-  runProjectTest(id : number): Observable<TestResult>{
+  runProjectTest(id: number): Observable<TestResult> {
     return this.http.get<TestResult>(`${this.backendHost}/${id}/tests`)
   }
 
@@ -40,9 +41,15 @@ export class ProjectService {
     const url = `${this.backendHost}/${id}`;
     return this.http.delete(url);
   }
+
   getAllOperationsByProjectId(projectId: number): Observable<Operation[]> {
     const url = `${this.backendHost}/${projectId}`;
     return this.http.get<Operation[]>(url);
   }
+
+  compareJson(id: number): Observable<TestResult> {
+    return this.http.get<TestResult>(`${this.backendHost}/${id}/rapport`)
+  }
+
 }
 

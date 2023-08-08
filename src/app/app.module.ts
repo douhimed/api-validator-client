@@ -18,6 +18,7 @@ import { OperationDetailsComponent } from './components/operation-details/operat
 import {JsonFormatPipe} from "./json-format.pipe";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CompareReportComponent } from './components/compare-report-component/compare-report-component.component';
 
 
 @NgModule({
@@ -33,8 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddOperationComponent,
     UpdateOperationComponent,
     OperationDetailsComponent,
-    JsonFormatPipe
-  ],
+    JsonFormatPipe,
+    CompareReportComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
