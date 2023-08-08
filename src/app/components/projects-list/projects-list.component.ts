@@ -3,7 +3,9 @@ import {Project} from 'src/app/models/project';
 import {ProjectService} from 'src/app/services/project.service';
 import {Router} from '@angular/router';
 import Swal from "sweetalert2";
-import { ToastrService } from 'ngx-toastr';
+import {ToastrService} from 'ngx-toastr';
+import {ResponseDto} from "../../models/ResponseDto";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-projects-list',
@@ -12,8 +14,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProjectsListComponent {
   projects: Project[] = [];
+  responseDto!: ResponseDto;
+  request: any = {};
+  comparisonResult: string = '';
 
-  constructor(private projectService: ProjectService, private router: Router, private toastr: ToastrService) {
+  constructor(private http: HttpClient, private projectService: ProjectService, private router: Router, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -25,8 +30,9 @@ export class ProjectsListComponent {
       this.projects = data;
     })
   }
-  runProjectTests(id : number | undefined){
-    this.router.navigate(['/project',id,'tests'])
+
+  runProjectTests(id: number | undefined) {
+    this.router.navigate(['/project', id, 'tests'])
   }
 
   updateProject(id: number): void {
@@ -58,7 +64,7 @@ export class ProjectsListComponent {
             }, 1500);
           },
           error: (err) => {
-            this.toastr.error('Error: '+err.error.message, 'Error');
+            this.toastr.error('Error: ' + err.error.message, 'Error');
           },
         });
       } else if (result.isDismissed) {
@@ -70,5 +76,9 @@ export class ProjectsListComponent {
         });
       }
     });
+  }
+
+  handleCompare(id: number | undefined) {
+    this.router.navigate(['/projects', id, 'rapport'])
   }
 }
