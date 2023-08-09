@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
 import Swal from 'sweetalert2';
-import { Project } from '../../models/project';
-import { ProjectService } from '../../services/project.service';
-import { ToastrService } from 'ngx-toastr';
+import {Project} from '../../models/project';
+import {ProjectService} from '../../services/project.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-update-project',
@@ -24,7 +24,8 @@ export class UpdateProjectComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.updateProjectFormGroup = this.formBuilder.group({
-      name: ['', Validators.required]
+      name: ['', Validators.required],
+      withAuth: ['']
     });
   }
 
@@ -33,7 +34,8 @@ export class UpdateProjectComponent implements OnInit {
     this.projectService.getProjectById(this.projectId).subscribe((project) => {
       this.project = project;
       this.updateProjectFormGroup.setValue({
-        name: project.name
+        name: project.name,
+        withAuth: project.withAuth
       });
     });
   }
@@ -43,7 +45,8 @@ export class UpdateProjectComponent implements OnInit {
       const updatedProject: Project = {
         id: this.projectId,
         name: this.updateProjectFormGroup.value.name,
-        operationDtos:[]
+        withAuth: this.updateProjectFormGroup.value.withAuth,
+        operationDtos: []
       };
       this.projectService.updateProject(updatedProject).subscribe({
         next: () => {
@@ -59,7 +62,7 @@ export class UpdateProjectComponent implements OnInit {
           }, 1100);
         },
         error: (err) => {
-          this.toastr.error('Error: '+err.error.message, 'Error');
+          this.toastr.error('Error: ' + err.error.message, 'Error');
         }
       });
     }

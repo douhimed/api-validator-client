@@ -20,6 +20,7 @@ export class NewProjectComponent implements OnInit {
   ngOnInit(): void {
     this.newProjectFormGroup = this.fb.group({
       name: this.fb.control(null, [Validators.required, Validators.minLength(3)]),
+      withAuth: this.fb.control(false)
     });
   }
 
@@ -44,6 +45,12 @@ export class NewProjectComponent implements OnInit {
           this.toastr.error('Error: '+err.error.message, 'Error');
         }
       });
+
+      if (this.newProjectFormGroup.value.withAuth) {
+        this.toastr.info('The project requires credentials.', 'With Authentication');
+      } else {
+        this.toastr.info('The project does not require credentials.', 'Without Authentication');
+      }
     }
   }
 }

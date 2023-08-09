@@ -1,7 +1,8 @@
-import {Operation} from "./Operation";
+import { FormControl } from '@angular/forms';
 
 export interface Project {
   id: number;
-  name : string;
-  operationDtos: Operation[];
+  name: string;
+  withAuth: FormControl;
+  operationDtos: any[];
 }
