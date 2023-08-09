@@ -31,7 +31,7 @@
                   <div class="card-body">
                     <p>Operation: {{ message.op }}</p>
                     <p>Path: {{ message.path }}</p>
-                    <p>Value: {{ message.value}}</p>
+                    <p *ngIf="message.value">Value: {{ message.value}}</p>
                   </div>
                 </div>
               </div>
