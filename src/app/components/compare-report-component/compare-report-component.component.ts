@@ -27,6 +27,13 @@ export class CompareReportComponent implements OnInit {
     const projectId = +projectIdParam;
     this.compareService.compareJson(projectId).subscribe(
       (testResult: TestResult) => {
+
+        for(let i=0;i<testResult.responseDto.length;i++){
+          for(let j=0;j<testResult.responseDto[i].messages.length;j++){
+            testResult.responseDto[i].messages[j].value = JSON.stringify(testResult.responseDto[i].messages[j].value)
+          }
+        }
+
         this.testResult = testResult;
         this.loading = false;
       },
