@@ -33,6 +33,13 @@ export class ProjectTestsComponent implements OnInit {
 
   loadProjectTestResults(): void {
     this.projectService.runProjectTest(this.id).subscribe((data) => {
+
+      for(let i=0;i<data.responseDto.length;i++){
+        for(let j=0;j<data.responseDto[i].messages.length;j++){
+          data.responseDto[i].messages[j].value = JSON.stringify(data.responseDto[i].messages[j].value)
+        }
+      }
+
       this.testResult = data
     });
   }
@@ -61,7 +68,7 @@ export class ProjectTestsComponent implements OnInit {
       desc += `Rapport N°${i} :
               Operation : ${message.op ?? ''}
               Path : ${message.path ?? ''}
-              Value : ${message.value?.msg ?? ''}
+              Value : ${message.value ?? ''}
               -----------------------------\n`;
     }
 
