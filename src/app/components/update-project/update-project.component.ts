@@ -24,7 +24,8 @@ export class UpdateProjectComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.updateProjectFormGroup = this.formBuilder.group({
-      name: ['', Validators.required]
+      name: ['', Validators.required],
+      withAuth: [false]
     });
   }
 
@@ -33,7 +34,8 @@ export class UpdateProjectComponent implements OnInit {
     this.projectService.getProjectById(this.projectId).subscribe((project) => {
       this.project = project;
       this.updateProjectFormGroup.setValue({
-        name: project.name
+        name: project.name,
+        withAuth: project.withAuth || false
       });
     });
   }
@@ -43,6 +45,7 @@ export class UpdateProjectComponent implements OnInit {
       const updatedProject: Project = {
         id: this.projectId,
         name: this.updateProjectFormGroup.value.name,
+        withAuth:this.updateProjectFormGroup.value.withAuth,
         operationDtos:[]
       };
       this.projectService.updateProject(updatedProject).subscribe({
@@ -63,5 +66,10 @@ export class UpdateProjectComponent implements OnInit {
         }
       });
     }
+    console.log(this.project.withAuth)
   }
+  toggleWithAuth(checked: boolean): void {
+    this.updateProjectFormGroup.patchValue({ withAuth: checked });
+  }
+
 }

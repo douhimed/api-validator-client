@@ -12,6 +12,10 @@
                 && newProjectFormGroup.controls['name'].errors!['required']">
                 Name is required
 </span>
+          <div class="mb-3 mt-3">
+            <label class="form-label" >With Authentication</label>
+            <input type="checkbox" style="margin-left: 10px;" class="form-check-input" formControlName="withAuth">
+          </div>
         </div>
         <div class="d-grid gap-2">
           <button [disabled]="!newProjectFormGroup.valid" class="btn btn-success" type="submit">Submit</button>
