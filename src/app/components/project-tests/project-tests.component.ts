@@ -94,22 +94,10 @@ export class ProjectTestsComponent implements OnInit {
   }
 
   showSuccessAlert() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'Jira ticket sent successfully!',
-      confirmButtonText: 'OK',
-      confirmButtonColor: '#32CD32',
-    });
+    this.toastr.success('Jira ticket sent successfully', '');
   }
 
   showErrorAlert() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error!',
-      text: 'Failed to send Jira ticket. Please try again later.',
-      confirmButtonText: 'OK',
-      confirmButtonColor: '#32CD32',
-    });
+    this.toastr.error('Failed to send Jira ticket. Please try again later', '');
 }
 }

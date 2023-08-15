@@ -29,27 +29,25 @@ export class NewProjectComponent implements OnInit {
       let project: Project = this.newProjectFormGroup.value;
       this.projectService.saveProject(project).subscribe({
         next: data => {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Project added',
-            showConfirmButton: false,
-            timer: 1000
-          })
+          this.toastr.success('Project added', '', {
+            positionClass: 'toast-top-right',
+            timeOut: 1000,
+            onActivateTick: true
+          });
           setTimeout(() => {
             this.newProjectFormGroup.reset();
             this.router.navigate(['/']);
           }, 1100);
         },
         error: err => {
-          this.toastr.error('Error: '+err.error.message, 'Error');
+          this.toastr.error('Error: ' + err.error.message, 'Error');
         }
       });
 
       if (this.newProjectFormGroup.value.withAuth) {
-        this.toastr.info('The project requires credentials.', 'With Authentication');
+        this.toastr.info('The project requires credentials.', '');
       } else {
-        this.toastr.info('The project does not require credentials.', 'Without Authentication');
+        this.toastr.info('The project does not require credentials.', '');
       }
     }
   }

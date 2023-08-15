@@ -44,8 +44,8 @@ export class ProjectsListComponent {
       title: 'Are you sure?',
       icon: 'question',
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#109406',
+      confirmButtonColor: '#dc3545',
+      cancelButtonColor: '#198754',
       confirmButtonText: 'Yes',
       cancelButtonText: 'No',
     }).then((result) => {
@@ -53,12 +53,7 @@ export class ProjectsListComponent {
         this.projectService.deleteProject(projectId).subscribe({
           next: (resp) => {
             this.projects = this.projects.filter((p) => p.id !== projectId);
-            Swal.fire({
-              icon: 'success',
-              title: 'Project deleted',
-              showConfirmButton: false,
-              timer: 1500
-            });
+            this.toastr.success('Project deleted successfully.', '');
             setTimeout(() => {
               this.router.navigate(['/']);
             }, 1500);
