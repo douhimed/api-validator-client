@@ -31,12 +31,11 @@ export class AddOperationComponent implements OnInit {
     if (projectId) {
       this.operationService.addOperation(projectId, this.operation).subscribe(
         operationId => {
-          Swal.fire({
-            icon: 'success',
-            title: 'Operation added',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          this.toastr.success('Operation added', '', {
+            positionClass: 'toast-top-right',
+            timeOut: 1000,
+            onActivateTick: true
+          });
           this.router.navigate(['projects', projectId, 'operations']);
         },
         error => {

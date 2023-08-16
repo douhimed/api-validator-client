@@ -3,7 +3,7 @@
     <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Nom de Projet</th>
+      <th scope="col">Project Name</th>
       <th style="text-align: center;">Actions</th>
     </tr>
     </thead>
@@ -12,15 +12,15 @@
       <td>{{ project.id }}</td>
       <td>{{ project.name }}</td>
       <td style="text-align: center;">
-        <button (click)="runProjectTests(project.id)" class="btn btn-success btn-sm" style="margin-left: 10px">
-          <i class="bi bi-play-circle"></i> Run
+        <button (click)="runProjectTests(project.id)" class="btn btn-success btn-sm">
+          <i class="bi bi-play-circle-fill"></i> Run
+        </button>
+        <button (click)="handleCompare(project.id)" class="btn btn-secondary btn-sm" style="margin-left: 10px">
+          <i class="bi bi-file-earmark-text"></i> Report
         </button>
         <a routerLink="/projects/{{ project.id }}/operations" class="btn btn-outline-primary btn-sm" style="margin-left: 10px">
           <i class="bi bi-eye"></i>
         </a>
-        <button (click)="handleCompare(project.id)" class="btn btn-outline-secondary btn-sm" style="margin-left: 10px">
-          <i class="bi bi-file-earmark-text"></i>
-        </button>
         <button class="btn btn-outline-warning btn-sm" style="margin-left: 10px;" (click)="updateProject(project.id)">
           <i class="bi bi-pencil"></i>
         </button>
