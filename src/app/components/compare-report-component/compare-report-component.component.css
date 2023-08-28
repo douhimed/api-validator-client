@@ -128,3 +128,15 @@ h1 {
 .post-section {
   background-color: rgba(250, 198, 127, 0.85);
 }
+
+.chart {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.card-body {
+  background-color: #eef1f1;
+}

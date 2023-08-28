@@ -1,4 +1,13 @@
 <div class="container" *ngIf="testResult">
+
+  <div class="card">
+    <div class="card-body">
+      <canvas baseChart class="chart" [data]="pieChartData" [type]="pieChartType" [options]="pieChartOptions"
+        [plugins]="pieChartPlugins">
+      </canvas>
+    </div>
+  </div>
+
   <div class="section" *ngFor="let responseDto of testResult.responseDto">
     <div class="section-header get-section" (click)="toggleCollapse(responseDto)">
       <div class="section-title">{{ responseDto?.type }}</div>

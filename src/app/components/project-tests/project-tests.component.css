@@ -68,7 +68,7 @@ h1 {
   font-size: 14px;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .section-triangle {
@@ -112,3 +112,14 @@ h1 {
   color: #333;
 }
 
+.chart {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.card-body {
+  background-color: #eef1f1;
+}
