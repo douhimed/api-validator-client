@@ -40,7 +40,7 @@ h1 {
   justify-content: space-between;
   cursor: pointer;
   padding: 15px;
-  background-color: #fff9f4;
+  background-color: #f3eff3;
   border-bottom: 1px solid #ddd;
 }
 
@@ -104,7 +104,7 @@ h1 {
 .scrollable-section {
   max-height: 200px;
   overflow-y: auto;
-  border: 1px solid #f1eded;
+  border: 1px solid #f3eff3;
   border-radius: 8px;
   padding: 10px;
   margin-top: 10px;
@@ -127,22 +127,6 @@ h1 {
   margin: 5px 0;
   font-size: 14px;
   color: #333;
-}
-
-.get-section {
-  background-color: #baf3ba;
-}
-
-.delete-section {
-  background-color: #ffcfcf;
-}
-
-.put-section {
-  background-color: #c7e8f6;
-}
-
-.post-section {
-  background-color: rgba(250, 198, 127, 0.85);
 }
 
 .chart {
