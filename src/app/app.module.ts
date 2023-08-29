@@ -19,6 +19,7 @@ import {JsonFormatPipe} from "./json-format.pipe";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompareReportComponent } from './components/compare-report-component/compare-report-component.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { CompareReportComponent } from './components/compare-report-component/co
     ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgChartsModule
 
   ],
   providers: [
